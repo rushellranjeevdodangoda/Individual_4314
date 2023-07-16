@@ -1,0 +1,58 @@
+﻿<Window x:Class="Individual_4314.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Individual_4314"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="{Binding Title,UpdateSourceTrigger=PropertyChanged}" Height="450" Width="500">
+    <Window.DataContext>
+        <local:AddUserVM/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="400"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel
+            Width="485" Height="450" HorizontalAlignment="Center"
+            VerticalAlignment="Top" Orientation="Vertical" Margin="0,60,0,0">
+            <TextBlock Text="First Name:" Margin="5" FontFamily="Verdana" Foreground="#FF9906F1"/>
+            <TextBox Text="{Binding Firstname, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="1" Background="#FF9906F1" Foreground="White"/>
+            <TextBlock Text="Last Name:" Margin="5" Grid.Row="1" FontFamily="Verdana" Foreground="#FF9906F1"/>
+            <TextBox Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="1" Background="#FF9906F1" Foreground="White"/>
+            <TextBlock Text="Date Of Birth:" Margin="5" Grid.Row="1" FontFamily="Verdana" Foreground="#FF9906F1"/>
+            <TextBox Text="{Binding Dateofbirth, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Row="1" Grid.Column="1" Background="#FF9906F1" Foreground="White"/>
+            <TextBlock Text="GPA" Margin="5" Grid.Row="1" Foreground="#FF9906F1" FontFamily="Verdana"/>
+            <TextBox Text="{Binding Gpa, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Row="1" Grid.Column="1" Background="#FF9906F1" FontFamily="Verdana" Foreground="White"/>
+            <Button Content="Add Avatar +" Width="100" Height="30"  HorizontalAlignment="Left" Command="{Binding UploadPhotoCommand}" Margin="5 20 5 -30" Grid.Row="3" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="White" Background="#FF9906F1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="7">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="DONE" Command="{Binding SaveCommand}" Margin="00 50 00 00" Grid.Row="3" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Width="100" Height="40" Background="#FF9906F1" Foreground="White">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="7">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Label Content="Add New Student +" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="00 -360 00 00" FontFamily="Verdana" FontWeight="Bold" FontSize="16" Foreground="#FF9906F1"/>
+        </StackPanel>
+    </Grid>
+</Window>
